@@ -148,9 +148,9 @@ module Danger
       def generate_description(warnings: nil, errors: nil, template: "github")
         emoji_mapper = EmojiMapper.new(template)
         if errors.empty? && warnings.empty?
-          return "All green. #{random_compliment}"
+          return "### All green. #{random_compliment}"
         else
-          message = "#{emoji_mapper.map('warning')} "
+          message = "### #{emoji_mapper.map('warning')} "
           message += "#{'Error'.danger_pluralize(errors.count)}. " unless errors.empty?
           message += "#{'Warning'.danger_pluralize(warnings.count)}. " unless warnings.empty?
           message += "Don't worry, everything is fixable."
